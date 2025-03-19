@@ -14,3 +14,15 @@ jobs:
           repository: estkme-group/openeuicc
           ref: dc6b3a4810bd05b25bd5433993cece12a79c5945
           submodules: recursive
+
+      - name: Decode Secret Signing Key
+        uses: actions/base64-to-file@v1
+        with:
+          fileName: keystore.properties
+          fileDir: ${{ env.GITHUB_WORKSPACE }}
+          encodedString: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
+
+      - name: Test
+        run: |
+          pwd
+          ls -al
