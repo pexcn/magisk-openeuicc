@@ -11,6 +11,6 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
-          repository: https://gitea.angry.im/PeterCxy/OpenEUICC.git
+          repository: estkme-group/openeuicc
           ref: dc6b3a4810bd05b25bd5433993cece12a79c5945
           submodules: recursive
