@@ -68,9 +68,13 @@ jobs:
 
       - name: Update Module
         run: |
+          # update assets
           cp -f artifact/app/build/outputs/apk/release/app-release.apk module/system/system_ext/priv-app/OpenEUICC/OpenEUICC.apk
           cp -f artifact/privapp_whitelist_im.angry.openeuicc.xml module/system/system_ext/etc/permissions/privapp_whitelist_im.angry.openeuicc.xml
+          # update version
           cd module
+          sed -i -E "s/(version=)[0-9]{8}/\1$(date +%Y%m%d)/; s/(versionCode=)[0-9]+/echo \1$(( $(grep -oP 'versionCode=\K\d+' module.prop) + 1 ))/e" module.prop
+          # commit and push
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .
