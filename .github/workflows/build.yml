@@ -16,7 +16,7 @@ jobs:
           submodules: recursive
 
       - name: Decode Secret Signing Key
-        uses: actions/base64-to-file@v1
+        uses: timheuer/base64-to-file@v1.2.4
         with:
           fileName: keystore.properties
           fileDir: ${{ env.GITHUB_WORKSPACE }}
