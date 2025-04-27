@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: estkme-group/openeuicc
-          ref: dc6b3a4810bd05b25bd5433993cece12a79c5945
+          ref: a601ab7d72b55fd23f898926923e805acfa1280c
           submodules: recursive
           path: openeuicc
 
