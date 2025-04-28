@@ -40,7 +40,10 @@ jobs:
           encodedString: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
 
       - name: Build Release APK
-        run: cd openeuicc; ./gradlew --no-daemon :app:assembleRelease
+        run: |
+          cd openeuicc
+          ./gradlew --no-daemon :app:assembleRelease
+          ./gradlew --no-daemon :app-unpriv:assembleRelease
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -48,6 +51,7 @@ jobs:
           path: |
             openeuicc/privapp_whitelist_im.angry.openeuicc.xml
             openeuicc/app/build/outputs/apk/release/app-release.apk
+            openeuicc/app-unpriv/build/outputs/apk/release/app-unpriv-release.apk
 
   deploy:
     needs: build
