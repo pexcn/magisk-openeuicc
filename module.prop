@@ -1,6 +1,6 @@
 id=openeuicc
 name=OpenEUICC
-version=20250427
-versionCode=3
+version=20250428
+versionCode=4
 author=pexcn
 description=Add OpenEUICC as a system app.
